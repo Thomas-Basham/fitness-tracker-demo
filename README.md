@@ -1,9 +1,20 @@
-# React + Vite
+# Fitness Tracker Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app lets the user track their workouts and helps them achieve their fitness goals.
 
-Currently, two official plugins are available:
+[Deployed Site](https://fitness-tracker-demo.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# fitness-tracker-demo
+## Features
+
+### MVP (Most Viable Product)
+
+- User can click a button to record that they exercised that day, saving the date and time they exercised.
+- The recorded data will display on the web page in a chart
+- User can update, delete a recorded workout
+
+### Nice to haves
+
+- User can select what type of workout they did
+- Chart tracks types and dates of workouts
+- User can register, login, logout
+- Data is persisted over time with a database
