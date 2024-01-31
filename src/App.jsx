@@ -17,6 +17,10 @@ function App() {
     setWorkoutData([...workoutData, obj]);
   };
 
+  // TODO: add event handler to delete an entry
+
+  // TODO: add event handler to update an entry
+
   return (
     <>
       <Header />

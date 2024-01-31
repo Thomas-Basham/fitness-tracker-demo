@@ -9,8 +9,8 @@ A React app lets the user track their workouts and helps them achieve their fitn
 ### MVP (Most Viable Product)
 
 - User can click a button to record that they exercised that day, saving the date and time they exercised.
-- The recorded data will display on the web page in a chart
-- User can update, delete a recorded workout
+- The recorded data will display on the web page in a list
+- User can update and delete a recorded workout
 
 ### Nice to haves
 
