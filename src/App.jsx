@@ -24,10 +24,8 @@ function App() {
   // event handler to update an entry
   const handleDelete = (entry) => {
     const newWorkoutData = workoutData.map((elm) => {
-      if (elm) {
-        if (elm.date !== entry.date) {
-          return elm;
-        }
+      if (elm?.date !== entry.date) {
+        return elm;
       }
     });
 
