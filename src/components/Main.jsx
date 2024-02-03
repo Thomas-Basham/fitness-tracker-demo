@@ -2,12 +2,21 @@ import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import WorkoutList from "./workoutList";
 
-export default function Main({ workoutData, handleButtonClick }) {
+export default function Main({
+  workoutData,
+  handleAddEntry,
+  handleUpdate,
+  handleDelete,
+}) {
   return (
     <main className="">
-      <Button onClick={handleButtonClick}>Click Me</Button>
+      <Button onClick={handleAddEntry}>Log Workout</Button>
       <div className="border m-3 p-3" style={{ minHeight: "80vh" }}>
-        <WorkoutList workoutData={workoutData} />
+        <WorkoutList
+          workoutData={workoutData}
+          handleUpdate={handleUpdate}
+          handleDelete={handleDelete}
+        />
       </div>
     </main>
   );
@@ -15,5 +24,5 @@ export default function Main({ workoutData, handleButtonClick }) {
 
 Main.propTypes = {
   workoutData: PropTypes.array.isRequired,
-  handleButtonClick: PropTypes.func.isRequired,
+  handleAddEntry: PropTypes.func.isRequired,
 };
