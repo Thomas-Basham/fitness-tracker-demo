@@ -1,4 +1,4 @@
-import WorkoutLog from "./workoutLog";
+import WorkoutLog from "./WorkoutLog";
 export default function WorkoutList({
   workoutData,
   handleUpdate,
