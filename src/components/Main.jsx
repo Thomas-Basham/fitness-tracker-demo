@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
-import WorkoutList from "./workoutList";
+import WorkoutList from "./WorkoutList";
 
 export default function Main({
   workoutData,
