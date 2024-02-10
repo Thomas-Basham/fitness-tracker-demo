@@ -4,8 +4,16 @@ export default function WorkoutLog({ obj, handleUpdate, handleDelete }) {
   return (
     obj && (
       <div className="border w-25 mx-auto mb-3 p-2">
-        <p>{obj.date.toLocaleDateString()}</p>
-        <p>{obj.date.toLocaleTimeString()}</p>
+        <p>
+          {obj.date instanceof Date
+            ? obj.date.toLocaleDateString()
+            : obj.date.toDate().toLocaleDateString()}
+        </p>
+        <p>
+          {obj.date instanceof Date
+            ? obj.date.toLocaleTimeString()
+            : obj.date.toDate().toLocaleTimeString()}
+        </p>
 
         <div className="d-flex  justify-content-between mx-2">
           <GoTrash

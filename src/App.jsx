@@ -19,6 +19,8 @@ function App() {
         
         if (docs?.length > 0) {
           setWorkoutData(docs);
+        } else {
+          console.log("NO DOCS FOUND.")
         }
       } catch (error) {
         console.error("Failed fetching docs", error);
