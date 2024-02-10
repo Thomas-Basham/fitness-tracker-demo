@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -6,9 +6,27 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 
+import { getAllDocuments } from "../firestore-utility";
+
 function App() {
   // need to hold data for workouts in state as an array of objects
   const [workoutData, setWorkoutData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const docs = await getAllDocuments("workouts");
+        
+        if (docs?.length > 0) {
+          setWorkoutData(docs);
+        }
+      } catch (error) {
+        console.error("Failed fetching docs", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleAddEntry = () => {
     const newDate = new Date();
