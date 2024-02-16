@@ -32,14 +32,14 @@ function App() {
     };
 
     fetchData();
-  }, []);
+  }, [workoutData]);
 
   const handleAddEntry = () => {
     const newDate = new Date();
     const obj = { date: newDate, type: "" };
-    setWorkoutData([...workoutData, obj]);
-
+    
     addDocument("workouts", obj);
+    setWorkoutData([...workoutData, obj]);
   };
 
   // event handler to delete an entry
