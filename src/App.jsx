@@ -6,7 +6,11 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 
-import { getAllDocuments } from "../firestore-utility";
+import {
+  getAllDocuments,
+  addDocument,
+  deleteDocument,
+} from "../firestore-utility";
 
 function App() {
   // need to hold data for workouts in state as an array of objects
@@ -16,11 +20,11 @@ function App() {
     const fetchData = async () => {
       try {
         const docs = await getAllDocuments("workouts");
-        
+
         if (docs?.length > 0) {
           setWorkoutData(docs);
         } else {
-          console.log("NO DOCS FOUND.")
+          console.log("NO DOCS FOUND.");
         }
       } catch (error) {
         console.error("Failed fetching docs", error);
@@ -34,6 +38,8 @@ function App() {
     const newDate = new Date();
     const obj = { date: newDate, type: "" };
     setWorkoutData([...workoutData, obj]);
+
+    addDocument("workouts", obj);
   };
 
   // event handler to delete an entry
@@ -49,7 +55,9 @@ function App() {
       }
     });
 
+    deleteDocument("workouts", entry.id);
     setWorkoutData(newWorkoutData);
+
     console.log("Deleted Entry");
   };
 

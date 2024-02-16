@@ -57,8 +57,10 @@ const deleteDocument = async (collectionName, id) => {
   const docRef = doc(db, collectionName, id);
 
   try {
-    await deleteDoc(docRef);
-    console.log("Document deleted successfully");
+    if (docRef) {
+      await deleteDoc(docRef);
+      console.log("Document deleted successfully");
+    }
   } catch (e) {
     console.error("Error deleting document: ", e);
     throw new Error(e);
