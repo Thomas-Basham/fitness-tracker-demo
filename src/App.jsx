@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
+import { auth } from "../firebase-config";
+
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
@@ -36,8 +38,8 @@ function App() {
 
   const handleAddEntry = () => {
     const newDate = new Date();
-    const obj = { date: newDate, type: "" };
-    
+    const obj = { date: newDate, type: "", createdBy: auth.currentUser.uid };
+
     addDocument("workouts", obj);
     setWorkoutData([...workoutData, obj]);
   };

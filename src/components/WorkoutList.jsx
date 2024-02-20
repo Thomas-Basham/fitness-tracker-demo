@@ -1,4 +1,6 @@
 import WorkoutLog from "./WorkoutLog";
+import { auth } from "../../firebase-config";
+
 export default function WorkoutList({
   workoutData,
   handleUpdate,
@@ -9,14 +11,16 @@ export default function WorkoutList({
       <h3>Recorded Workouts</h3>
       {workoutData &&
         workoutData.map((obj, index) => {
-          return (
-            <WorkoutLog
-              key={index}
-              obj={obj}
-              handleUpdate={handleUpdate}
-              handleDelete={handleDelete}
-            />
-          );
+          if (obj.createdBy === auth.currentUser.uid) {
+            return (
+              <WorkoutLog
+                key={index}
+                obj={obj}
+                handleUpdate={handleUpdate}
+                handleDelete={handleDelete}
+              />
+            );
+          }
         })}
     </>
   );
